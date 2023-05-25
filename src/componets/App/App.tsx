@@ -2,15 +2,19 @@ import "./App.scss";
 import { useQuery, gql } from "@apollo/client";
 
 const GET_REPOSITORY = gql`
-  query getRepositorys($login: String!) {
-    user(login: $login) {
-      repositories(first: 20) {
-        edges {
-          node {
+  query searchRepo($name: String!) {
+    search(type: REPOSITORY, query: $name, first: 100) {
+      userCount
+      edges {
+        node {
+          ... on Repository {
             id
             name
-            stargazerCount
             url
+            stargazerCount
+            owner {
+              login
+            }
           }
         }
       }
@@ -21,7 +25,7 @@ const GET_REPOSITORY = gql`
 function App() {
   const { data } = useQuery(GET_REPOSITORY, {
     variables: {
-      login: "Bospur",
+      name: "name:",
     },
   });
 
