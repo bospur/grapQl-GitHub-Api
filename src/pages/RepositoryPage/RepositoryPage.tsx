@@ -18,8 +18,6 @@ const RepositoryPage = () => {
     },
   });
 
-  console.log(data);
-
   if (loading)
     return (
       <div className={styles.wrapper}>

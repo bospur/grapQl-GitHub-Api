@@ -7,6 +7,8 @@ class GitHubApiStore {
   gitHubRepoList: N<GitHubListItem[]> = null;
   searchValue = "";
   repoInfo: N<RepoInfo> = null;
+  pageInfo: N<any> = null;
+  cursor: N<string> = null;
 
   constructor(rootStore: typeof RootStore) {
     makeAutoObservable(this, {

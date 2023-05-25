@@ -12,8 +12,8 @@ const LanguagesList: FC<ILanguagesList> = ({ languages }) => {
     <div className={styles.languagesList}>
       <h3>Languages</h3>
       <ul>
-        {languages.nodes.map((language) => (
-          <li>{language.name}</li>
+        {languages.nodes.map((language, i) => (
+          <li key={i}>{language.name}</li>
         ))}
       </ul>
     </div>

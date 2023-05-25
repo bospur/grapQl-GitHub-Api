@@ -17,7 +17,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = "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";
+  const token = import.meta.env.VITE_GIT_TOKEN;
 
   return {
     headers: {
