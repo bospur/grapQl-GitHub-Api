@@ -1,0 +1,12 @@
+.languagesList {
+  h2 {
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+    display: flex;
+    gap: 1rem;
+  }
+}

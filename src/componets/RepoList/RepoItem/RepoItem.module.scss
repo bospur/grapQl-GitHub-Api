@@ -1,0 +1,51 @@
+@import "../../../assets/styles/variables.scss";
+
+.wrapper {
+  width: 50%;
+
+  @include flex(flex-start, column, center);
+  gap: 1rem;
+
+  padding: $padding;
+  border: 1px solid $blue;
+  border-radius: $b-radius;
+
+  .header {
+    width: 100%;
+    align-self: flex-start;
+
+    @include flex(space-between, row, center);
+
+    .name {
+      font-size: 16px;
+      color: $black100;
+      transition: $transition;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    .stars {
+      @include flex(center, row, center);
+      gap: 0.5rem;
+      font-size: 14px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .repoLink {
+    align-self: flex-start;
+    text-decoration: underline;
+    font-size: 12px;
+  }
+
+  .createdAt {
+    align-self: flex-end;
+    font-size: 14px;
+  }
+}

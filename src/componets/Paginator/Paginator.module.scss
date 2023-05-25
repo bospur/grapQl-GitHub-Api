@@ -1,0 +1,14 @@
+@import "../../assets/styles/variables.scss";
+
+.wrapper {
+  margin-top: $margin;
+
+  @include flex(center, row, center);
+
+  .paginator {
+    list-style: none;
+    padding-inline-start: 0;
+    display: flex;
+    gap: 1rem;
+  }
+}

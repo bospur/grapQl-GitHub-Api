@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createRoot } from "react-dom/client";
 import {
   ApolloClient,
@@ -16,7 +17,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = "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";
+  const token = "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";
 
   return {
     headers: {

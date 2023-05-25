@@ -1,0 +1,14 @@
+@import "../../../assets/styles/variables.scss";
+
+.input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid $blue;
+  border-radius: $b-radius;
+  padding: 5px;
+  outline: none;
+
+  &:focus {
+    border: 2px solid $blue;
+  }
+}

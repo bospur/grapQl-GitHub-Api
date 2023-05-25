@@ -1,0 +1,37 @@
+@import "../../../../assets/styles/variables.scss";
+
+.avatarBlock {
+  display: flex;
+  gap: 1rem;
+
+  .info {
+    position: relative;
+    width: 100%;
+
+    @include flex(flex-start, row, center);
+
+    .stars {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+
+      @include flex(center, row, center);
+      font-size: 14px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .name {
+      font-size: 18px;
+    }
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}

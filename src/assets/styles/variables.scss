@@ -1,0 +1,15 @@
+/* colors */
+$blue: #76abe7;
+$black100: #181818;
+
+$b-radius: 6px;
+$padding: 10px;
+$margin: 10px;
+$transition: 0.3s all ease-in;
+
+@mixin flex($justify-content, $flex-direction, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+}

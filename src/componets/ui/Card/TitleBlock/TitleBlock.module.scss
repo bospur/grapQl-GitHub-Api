@@ -1,0 +1,6 @@
+@import "../../../../assets/styles/variables.scss";
+
+.wrapper {
+  @include flex(center, column, center);
+  gap: 1rem;
+}

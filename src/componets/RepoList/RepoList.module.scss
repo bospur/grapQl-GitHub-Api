@@ -1,0 +1,8 @@
+@import "../../assets/styles/variables.scss";
+
+.wrapper {
+  margin-top: $margin;
+
+  @include flex(flex-start, column, center);
+  gap: 2rem;
+}

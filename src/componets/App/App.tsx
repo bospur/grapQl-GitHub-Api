@@ -1,36 +1,22 @@
+import Home from "../../pages/Home/Home";
+import RepositoryPage from "../../pages/RepositoryPage/RepositoryPage";
 import "./App.scss";
-import { useQuery, gql } from "@apollo/client";
 
-const GET_REPOSITORY = gql`
-  query searchRepo($name: String!) {
-    search(type: REPOSITORY, query: $name, first: 100) {
-      userCount
-      edges {
-        node {
-          ... on Repository {
-            id
-            name
-            url
-            stargazerCount
-            owner {
-              login
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "repository/:login/:repositoryName",
+    element: <RepositoryPage />,
+  },
+]);
 
 function App() {
-  const { data } = useQuery(GET_REPOSITORY, {
-    variables: {
-      name: "name:",
-    },
-  });
-
-  console.log(data);
-  return <div>GraphQl API GitHub</div>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
