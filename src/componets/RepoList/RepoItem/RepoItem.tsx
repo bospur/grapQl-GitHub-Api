@@ -34,7 +34,7 @@ const RepoItem: FC<IRepoItem> = ({ data }) => {
       <div className={styles.createdAt}>create date: {data.createdAt}</div>
       <div className={styles.createdAt}>
         last commit date:{" "}
-        {data.defaultBranchRef.target.history.edges[0].node.committedDate ??
+        {data.defaultBranchRef?.target?.history?.edges[0].node.committedDate ??
           "none"}
       </div>
     </li>

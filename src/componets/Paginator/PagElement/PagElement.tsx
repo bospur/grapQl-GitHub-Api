@@ -3,9 +3,9 @@ import styles from "./PagElement.module.scss";
 import classNames from "classnames";
 
 interface IPagElement {
-  item: number;
+  item: number | string;
   currentPage: number;
-  handelChange: SetState<number>;
+  handelChange?: SetState<number>;
 }
 
 const PagElement: FC<IPagElement> = ({ item, currentPage, handelChange }) => {

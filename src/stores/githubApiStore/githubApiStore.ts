@@ -1,14 +1,20 @@
 import { makeAutoObservable } from "mobx";
 import RootStore from "../rootStore/rootStore";
-import { GitHubListItem, RepoInfo } from "../../ts/models/gitHubApiStore.model";
+import {
+  GitHubListItem,
+  PageInfo,
+  RepoInfo,
+} from "../../ts/models/gitHubApiStore.model";
 
 class GitHubApiStore {
   rootStore;
   gitHubRepoList: N<GitHubListItem[]> = null;
   searchValue = "";
   repoInfo: N<RepoInfo> = null;
-  pageInfo: N<any> = null;
-  cursor: N<string> = null;
+  pageInfo: N<PageInfo> = null;
+  afterCursor: N<string> = null;
+  beforeCursor: N<string> = null;
+  totalCout = 0;
 
   constructor(rootStore: typeof RootStore) {
     makeAutoObservable(this, {
@@ -24,6 +30,16 @@ class GitHubApiStore {
       this[key] = params[key];
     }
   };
+
+  get first() {
+    return this.afterCursor || (!this.afterCursor && !this.beforeCursor)
+      ? 10
+      : null;
+  }
+
+  get last() {
+    return this.beforeCursor ? 10 : null;
+  }
 }
 
 export default GitHubApiStore;

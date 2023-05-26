@@ -32,3 +32,10 @@ export type RepoInfo = {
   owner: string;
   name: string;
 };
+
+export type PageInfo = {
+  hasPreviousPage: boolean;
+  startCursor: string;
+  hasNextPage: boolean;
+  endCursor: string;
+};

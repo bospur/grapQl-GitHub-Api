@@ -2,10 +2,25 @@ import { gql } from "@apollo/client";
 
 const gitHubApi = {
   getRepoList: gql`
-    query searchRepo($name: String!, $cursor: String) {
-      search(type: REPOSITORY, query: $name, first: 10, after: $cursor) {
+    query searchRepo(
+      $name: String!
+      $afterCursor: String
+      $beforeCursor: String
+      $first: Int
+      $last: Int
+    ) {
+      search(
+        type: REPOSITORY
+        query: $name
+        first: $first
+        last: $last
+        after: $afterCursor
+        before: $beforeCursor
+      ) {
         repositoryCount
         pageInfo {
+          hasPreviousPage
+          startCursor
           hasNextPage
           endCursor
         }

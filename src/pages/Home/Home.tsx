@@ -11,12 +11,16 @@ import RepoList from "../../componets/RepoList/RepoList";
 import Paginator from "../../componets/Paginator/Paginator";
 
 const Home = () => {
-  const { setKeysValues, searchValue, cursor } = rootStore.gitHubApiStore;
+  const { setKeysValues, searchValue, afterCursor, beforeCursor, last, first } =
+    rootStore.gitHubApiStore;
 
   const { data, loading } = useQuery(gitHubApi.getRepoList, {
     variables: {
       name: `name: ${searchValue}`,
-      cursor,
+      afterCursor,
+      beforeCursor,
+      last,
+      first,
     },
   });
 
@@ -25,6 +29,7 @@ const Home = () => {
       setKeysValues({
         gitHubRepoList: data.search.edges,
         pageInfo: data.search.pageInfo,
+        totalCout: data.search.repositoryCount,
       });
   }, [data, setKeysValues]);
 
@@ -33,7 +38,7 @@ const Home = () => {
       <Search loading={loading} />
       <hr />
       <RepoList />
-      <Paginator pages={5} pageCount={10} />
+      <Paginator pages={10} />
     </div>
   );
 };
